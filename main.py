@@ -3,8 +3,16 @@ from auth.router import router as auth_router
 from db.base import Base
 from db.session import engine
 
+# Создание таблиц (только для dev!)
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="По следам — Auth Service")
+app = FastAPI(
+    title="По следам — Auth Service",
+    description="Микросервис аутентификации для мобильного приложения «По следам»",
+    version="1.0.0",
+    docs_url="/docs",       
+    redoc_url="/redoc",      
+    openapi_url="/openapi.json",
+)
 
 app.include_router(auth_router)
