@@ -3,7 +3,6 @@ from auth.router import router as auth_router
 from db.base import Base
 from db.session import engine
 
-# Создание таблиц (только для dev!)
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
